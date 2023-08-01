@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<title>Insert title here</title>
+</head>
+
+<body style="background-image: url('/img/IMS.png');">
+
+
+
+
+	<nav class="navbar navbar-expand-md navbar-dark py-1" style="background-color:DarkSlateBlue;">
+	
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Product Management System</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/products}">Product Management System</a>
+      </li>
+    </ul>
+  </div>
+  
+  <div style="position: absolute; right:20px;" class="form-inline my-2 my-lg-0">
+  <a th:href="@{/logout}" class="btn btn-success" type="submit" >Logout</a>
+  </div>
+</nav>
+<div class="container">
+
+</div>
+		<div class="container card p-3 mt-3 border-primary" style="opacity: 0.90;">
+			<div>
+				<h3 class="text-center"> Users</h3>
+			</div>
+			
+			<table class="table table-striped mt-1 text-center table-bordered">
+				<thead class="table-dark" style="background-color:RebeccaPurple">
+					<tr>
+						<th> Username</th>
+						
+						<th> Email</th>
+						<th> Role</th>
+						<th>Action</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each = "user: ${users}">
+						<td th:text="${user.username}">
+				
+						<td th:text="${user.email}">
+						<td th:text="${user.role}">
+						<td><a th:href = "@{/users/{username}(username=${user.username})}"
+							class="btn btn-danger">Delete</a>
+						
+							
+							
+							
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+
+
+
+</html>

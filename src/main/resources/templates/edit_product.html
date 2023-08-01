@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Inventory Management System</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+			integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+			crossorigin="anonymous">
+	</head>
+	<body style="background-image: url('/img/IMS.png');">
+<nav class="navbar navbar-expand-md navbar-dark py-1" style="background-color:DarkSlateBlue;">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Product Management System</a>
+
+  
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/products}">Product Management System</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
+
+		<div class="container">
+			<div class="row">
+			<div class="col-lg-6 container justify-content-center card border-primary" style="opacity: 0.90; margin-top:0%">
+				
+					<h1 class="text-center">Update Product</h1>
+					<div class="card-body">
+						<form th:action="@{/products/{id}(id=${product.id})}" th:object="${product}" method="POST">
+							<div class="form-group">
+								<label>Product id:</label>
+								<input type="text"
+									name="id"
+									th:field="*{id}"
+									class="form-control"
+									placeholder="Enter product id"
+									readonly/>
+							</div>
+							<div class="form-group">
+								<label>Product Name:</label>
+								<input type="text"
+									name="Name"
+									th:field="*{name}"
+									class="form-control"
+									placeholder="Enter product Name"
+									required/>
+							</div>
+							<div class="form-group">
+								<label>Product price:</label>
+								<input type="number"
+								step="any"
+									name="price"
+									th:field="*{price}"
+									class="form-control"
+									placeholder="Enter product price"
+									required/>
+							</div>
+							<div class="form-group">
+								<label>Product quantity:</label>
+								<input type="number"
+									name="quantity"
+									th:field="*{quantity}"
+									class="form-control"
+									placeholder="Enter product quantity"
+									required/>
+							</div>
+							<div class="box-footer">
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

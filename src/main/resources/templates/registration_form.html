@@ -1,0 +1,45 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body style="background-image: url('/img/IMS.png');">
+<div class="container pt-4">
+			<div class="row">
+			<div class="col-lg-6 container justify-content-center card border-primary" style="opacity: 0.90; margin-top:0%">
+				
+
+
+             <p class="text-center h1">Register</p>
+
+               
+		<form th:action="@{/process_register}" method="post" th:object="${user}">
+                  
+                    <label class="form-label" for="form3Example1c">Your Name</label>
+					<input type="text" name="username" id="form3Example1c" class="form-control" placeholder="enter your username" th:value="${user.username}" required>
+                      
+                   <br>
+                    <label class="form-label" for="form3Example3c">Your Email</label>
+                      <input type="email" name="email" id="form3Example3c" class="form-control" placeholder="enter your email" th:value="${user.email}" required>
+			
+
+                  <br>
+                    <label class="form-label" for="form3Example4c">Password</label>
+					<input type="password" name="password" id="form3Example4c" class="form-control" placeholder="Password" th:value="${user.password}" required>
+                      
+                   
+
+					<br>
+                  <div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                    <a th:href="@{/products}" class="btn btn-primary" type="submit" >Cancel</a>
+                  </div>
+
+                </form>
+                </div>
+                </div>
+                </div>
+
+             
+</body>
+</html>
